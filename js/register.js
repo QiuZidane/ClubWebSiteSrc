@@ -29,19 +29,27 @@ function submitCheck(event) {
 	} else if (userpassword == "") {
 		alert("请输入密码!");
 	} else {
-		//调用B1-登录接口---牟宁;
-		LoginPost(userdepartment,username,userpassword);
+		//调用B1-注册接口---牟宁;		
+		var result = confirm("您的注册信息为:\n\n用户名："+username+"\n密码："+userpassword+"\n部门："+userdepartment+"\n\n用户名不要写错噢!")
+		if (result) {
+			RegisterPost(userdepartment,username,userpassword);
+		} else {
+			alert("取消了，请重新确认");
+		}
+		
 	}
 }
 
+
+
 // ajax的post方法:
-// login的post方法，调用B1接口
-function LoginPost(deparment,name,password) {
+// Register的post方法，调用B1接口
+function RegisterPost(deparment,name,password) {
 	$.ajax({
 		//提交数据的类型 POST GET
 		type: "POST",
 		//提交的网址
-		url: "http://localhost:8080/FootBallWebSite/LoginServlet",
+		url: "http://localhost:8080/FootBallWebSite/RegisterServlet",
 		//提交的数据
 		data: {
 			deparment: deparment,
@@ -52,7 +60,7 @@ function LoginPost(deparment,name,password) {
 		datatype: "html", //"xml", "html", "script", "json", "jsonp", "text".
 		//在请求之前调用的函数
 		beforeSend: function() {
-			//$("#msg").html("logining");
+			//$("#msg").html("Registering");
 		},
 		//成功返回之后调用的函数            
 		success: function(data) {
@@ -60,7 +68,7 @@ function LoginPost(deparment,name,password) {
 		},
 		//调用执行后调用的函数
 		complete: function(XMLHttpRequest, textStatus) {			
-			alert(XMLHttpRequest.responseText); //XMLHttpRequest.responseText是返回的信息，用这个来放JSON数据
+//			alert(XMLHttpRequest.responseText); //XMLHttpRequest.responseText是返回的信息，用这个来放JSON数据
 			try {
 				var jsonObject = JSON.parse(XMLHttpRequest.responseText);
 				for (var key in jsonObject) {
