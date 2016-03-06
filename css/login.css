@@ -38,20 +38,6 @@
     font-size: 25px;
     color: white;
 }
-#department {
-    float: left;
-    border: 2px solid rgb(51,122,183);
-    width: 200px;
-    height: 38px;
-    margin-top: 13px;
-    margin-left: 120px;
-    text-align: center;
-    
-}
-
-#departmentlist {
-	width:200px;
-}
 
 #username {
     float: left;
@@ -75,13 +61,23 @@
     
 }
 
-#loginbtn {
+#resgisterbtn {
     float: left;
     border: 2px solid rgb(51,122,183);
-    width: 200px;
+    width: 95px;
     height: 38px;
     margin-top: 1px;
     margin-left: 120px;
+    text-align: center;    
+}
+
+#loginbtn {
+    float: left;
+    border: 2px solid rgb(51,122,183);
+    width: 95px;
+    height: 38px;
+    margin-top: 1px;
+    margin-left: 10px;
     text-align: center;    
 }
 

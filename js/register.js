@@ -30,13 +30,13 @@ function submitCheck(event) {
 		alert("请输入密码!");
 	} else {
 		//调用B1-注册接口---牟宁;		
-		var result = confirm("您的注册信息为:\n\n用户名："+username+"\n密码："+userpassword+"\n部门："+userdepartment+"\n\n用户名不要写错噢!")
+		var result = confirm("您的注册信息为:\n\n用户名：" + username + "\n密码：" + userpassword + "\n部门：" + userdepartment + "\n\n用户名不要写错噢!")
 		if (result) {
-			RegisterPost(userdepartment,username,userpassword);
+			RegisterPost(userdepartment, username, userpassword);
 		} else {
 			alert("取消了，请重新确认");
 		}
-		
+
 	}
 }
 
@@ -44,11 +44,11 @@ function submitCheck(event) {
 
 // ajax的post方法:
 // Register的post方法，调用B1接口
-function RegisterPost(deparment,name,password) {
+function RegisterPost(deparment, name, password) {
 	$.ajax({
 		//提交数据的类型 POST GET
 		type: "POST",
-		//提交的网址
+		//提交的网址--改为调用B1接口
 		url: "http://localhost:8080/FootBallWebSite/RegisterServlet",
 		//提交的数据
 		data: {
@@ -67,14 +67,22 @@ function RegisterPost(deparment,name,password) {
 			//$("#msg").html(decodeURI(data));
 		},
 		//调用执行后调用的函数
-		complete: function(XMLHttpRequest, textStatus) {			
-//			alert(XMLHttpRequest.responseText); //XMLHttpRequest.responseText是返回的信息，用这个来放JSON数据
+		complete: function(XMLHttpRequest, textStatus) {
+			//			alert(XMLHttpRequest.responseText); //XMLHttpRequest.responseText是返回的信息，用这个来放JSON数据
 			try {
 				var jsonObject = JSON.parse(XMLHttpRequest.responseText);
 				for (var key in jsonObject) {
 					alert("属性=" + key + "\n值=" + jsonObject[key]);
+					if (key == "retcode") {
+						if (jsonObject[key] == "0") {
+//							console.log("注册成功，跳转到个人属性页面"); // 跳转时 							
+							document.location.href='../pages/myabbs.html';
+						}
+					}
 				}
+
 			} catch (e) {
+				e.message;
 				alert("返回信息=>" + XMLHttpRequest.responseText + "\n=>无法转换为JSON");
 			}
 		},

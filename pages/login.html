@@ -25,24 +25,6 @@
 				<!--标题-->
 				<div id="logintitle">Login</div>
 				<form role="form" method="post" target="postTo">
-					<!--选择部门-->
-					<div class="btn-group" id="department">
-						<button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown" id="mydepartment" tag="选择部门">
-							选择部门 <span class="caret"></span>
-
-						</button>
-						<ul class="dropdown-menu" role="menu" id="departmentlist">
-							<li><a href="#">广州测试部</a></li>
-							<li><a href="#">广州研发支持部</a></li>
-							<li><a href="#">广州海外支持部</a></li>
-							<li><a href="#">广州开发一部</a></li>
-							<li><a href="#">广州开发二部</a></li>
-							<li><a href="#">广州开发三部</a></li>
-							<li><a href="#">广州开发四部</a></li>
-							<li><a href="#">广州行政部</a></li>
-							<li><a href="#">其他基地部门</a></li>
-						</ul>
-					</div>
 					<!--用户名-->
 					<div class="form-group" id="username">
 						<input type="text" class="form-control" id="nameinput" placeholder="Username">
@@ -51,8 +33,11 @@
 					<div class="form-group" id="password">
 						<input type="password" class="form-control" id="passwordinput" placeholder="Passowrd">
 					</div>
+					<div id="resgisterbtn">
+						<button type="submit" class="btn btn-success btn-block" id="reginput">注册</button>
+					</div>
 					<div id="loginbtn">
-						<button type="submit" class="btn btn-primary btn-block" id="submitinput">Let me in.</button>
+						<button type="submit" class="btn btn-primary btn-block" id="submitinput">登录</button>
 					</div>
 				</form>
 				<iframe name="postTo" style="display:none"></iframe>
