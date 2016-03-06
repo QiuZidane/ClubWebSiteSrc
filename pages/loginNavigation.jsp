@@ -12,7 +12,7 @@
 		/* System.out.println("已登录"); */
 		pageContext.include("myabbs.html");		/* 跳转到个人属性页面 */
 	} else {
-		pageContext.include("login.jsp");		/* 跳转到登录页面 */
+		pageContext.include("login.html");		/* 跳转到登录页面 */
 		/* session.setAttribute("loginFlag", "1");
 		session.setMaxInactiveInterval(3);  */
 	}		
